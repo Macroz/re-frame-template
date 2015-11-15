@@ -14,6 +14,8 @@
    (base/files data)
    (views/view-cljs options data)
 
+   (when (:css? data) (base/css-files data))
+
    (when (helpers/option? garden/option options) (garden/files data))
    (when (helpers/option? re-com/option options) (re-com/assets data))
    (when (helpers/option? routes/option options) (routes/routes-cljs data))
@@ -24,6 +26,7 @@
   {:name name
    :ns-name (sanitize-ns name)
    :sanitized (name-to-path name)
+   :css? (when-not (helpers/option? garden/option options) "css")
    :garden? (helpers/invoke-option garden/option options)
    :re-com? (helpers/invoke-option re-com/option options)
    :routes? (helpers/invoke-option routes/option options)

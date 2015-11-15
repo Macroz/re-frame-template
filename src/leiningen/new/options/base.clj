@@ -11,3 +11,6 @@
    ["src/cljs/{{sanitized}}/db.cljs" (helpers/render "src/cljs/db.cljs" data)]
    ["src/cljs/{{sanitized}}/subs.cljs" (helpers/render "src/cljs/subs.cljs" data)]
    ["src/cljs/{{sanitized}}/handlers.cljs" (helpers/render "src/cljs/handlers.cljs" data)]])
+
+(defn css-files [data]
+  [["resources/public/css/screen.css" (helpers/render "resources/public/css/screen.css" data)]])
